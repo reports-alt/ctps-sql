@@ -1,33 +1,24 @@
-
 const functions = require("firebase-functions");
-const mysql = require("mysql2/promise");
-const { Connector } = require("@google-cloud/cloud-sql-connector");
+const mysql = require('mysql2');
 
-// Create a new connector instance
-const connector = new Connector();
-
-// Database connection options
-const dbConfig = {
+// Create a connection pool to the database
+const pool = mysql
+  .createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  // Use the Cloud SQL connection name
-  host: process.env.DB_CONNECTION_NAME,
-  connectionLimit: 10,
-};
+  socketPath : `/cloudsql/${process.env.DB_INSTANCE_CONNECTION_NAME}`,
+  //host : process.env.DB_HOST,
+  multipleStatements: true,
+  dateStrings: true,
+  decimalNumbers: true,
+   //connectionLimit: 10,
+  //dateStrings: ["DATE", "DATETIME","TIMESTAMP"],
+})
+  .promise();
 
-// Create a connection pool with the connector
-const pool = mysql.createPool({
-  ...dbConfig,
-  // The connector will create a socket for the connection
-  socketPath: connector.getSocketPath(dbConfig.host),
-});
 
-// Close the connector when the function instance is terminated
-// This is important for long-running instances or if you have multiple functions
-process.on('SIGTERM', () => {
-  connector.close();
-});
+
 
 // Placeholder for a function to be called
 const getUser = async (data, context) => {
@@ -35,7 +26,7 @@ const getUser = async (data, context) => {
   console.log("Executing GetUser with data:", data, context);
   // You can interact with the database here using the pool
   // const [rows] = await pool.query('SELECT * FROM your_table');
-  return { result: "GetUser executed successfully." , data, content};
+  return { result: "GetUser executed successfully." , data, context};
 };
 
 // Placeholder for another function

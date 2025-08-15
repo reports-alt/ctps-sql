@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import { httpsCallable } from 'firebase/functions';
-import { auth } from '../plugins/firebase';
+import { auth, functions } from '../plugins/firebase';
 
 export const useUserStore = defineStore('user', () => {
   const role = ref(null);
@@ -26,7 +26,7 @@ export const useUserStore = defineStore('user', () => {
 
   async function login(email, password) {
     try {
-      const userCredential = await signInWithEmailAndPassword(firebaseStore.auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
      // firebaseUser.value = userCredential.user;
       console.log('User logged in:', userCredential);
     } catch (error) {
@@ -48,7 +48,7 @@ export const useUserStore = defineStore('user', () => {
 
   async function getUser() {
     try {
-      const apiCall = httpsCallable(firebaseStore.functions, 'api');
+      const apiCall = httpsCallable(functions, 'api');
       const result = await apiCall({ method: 'getUser' , user:firebaseUser.value});
       // Handle the response from the Cloud Function
       console.log('getUser Cloud Function response:', result.data);

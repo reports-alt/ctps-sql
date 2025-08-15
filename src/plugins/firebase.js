@@ -18,9 +18,9 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 
 const auth = getAuth(firebaseApp);
-const firestore = getFirestore(firebaseApp); // Assuming default database; if you have a specific db ID, add it here
+const firestore = getFirestore(firebaseApp, "developer"); // Assuming default database; if you have a specific db ID, add it here
 const functions = getFunctions(firebaseApp); // Assuming default region; if you have a specific region, add it here
-
+console.log('firebaseConfig',firebaseConfig)
 export {
   firebaseApp,
   auth,

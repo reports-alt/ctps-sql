@@ -2,6 +2,7 @@
   <v-app-bar>
     <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
     <v-app-bar-title>PackTrackIt (SQL)</v-app-bar-title>
+    u {{ user }}
     <v-spacer></v-spacer>
     <div class="pr-3">
       <v-icon v-if="!user" @click="showLoginDialog = true">mdi-login</v-icon>
