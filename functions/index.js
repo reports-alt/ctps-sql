@@ -1,14 +1,8 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
 
+const functions = require("firebase-functions");
 const mysql = require('mysql2/promise');
 
+// Create a connection pool to the database
 const pool = mysql.createPool({
  user: process.env.DB_USER,
  password: process.env.DB_PASSWORD,
@@ -17,6 +11,7 @@ const pool = mysql.createPool({
  connectionLimit: 10,
 });
 
+// Test the database connection
 pool.getConnection()
  .then(connection => {
  console.log('Successfully connected to the database pool.');
@@ -25,26 +20,39 @@ pool.getConnection()
  .catch(err => {
  console.error('Error connecting to the database pool:', err);
  });
-const {setGlobalOptions} = require("firebase-functions");
-const {onRequest} = require("firebase-functions/https");
-const logger = require("firebase-functions/logger");
 
-// For cost control, you can set the maximum number of containers that can be
-// running at the same time. This helps mitigate the impact of unexpected
-// traffic spikes by instead downgrading performance. This limit is a
-// per-function limit. You can override the limit for each function using the
-// `maxInstances` option in the function's options, e.g.
-// `onRequest({ maxInstances: 5 }, (req, res) => { ... })`.
-// NOTE: setGlobalOptions does not apply to functions using the v1 API. V1
-// functions should each use functions.runWith({ maxInstances: 10 }) instead.
-// In the v1 API, each function can only serve one request per container, so
-// this will be the maximum concurrent request count.
-setGlobalOptions({ maxInstances: 10 });
+// Placeholder for a function to be called
+const getUser = async (data, context) => {
+    // Example: const { text } = data;
+    console.log("Executing GetUser with data:", data, context);
+    // You can interact with the database here using the pool
+    // const [rows] = await pool.query('SELECT * FROM your_table');
+    return { result: "sampleFunctionOne executed successfully." };
+};
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+// Placeholder for another function
+const sampleFunctionTwo = async (data, context) => {
+    console.log("Executing sampleFunctionTwo with data:", data);
+    return { result: "sampleFunctionTwo executed successfully." };
+};
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+// A map of method names to the functions they should trigger
+const availableFunctions = {
+    getUser,
+    'sampleTwo': sampleFunctionTwo,
+};
+
+exports.api = functions.https.onCall(async (data, context) => {
+    const { method, ...payload } = data;
+
+    if (!method || !availableFunctions[method]) {
+        throw new functions.https.HttpsError('not-found', `The method "${method}" is not a valid method.`);
+    }
+
+    try {
+        return await availableFunctions[method](payload, context);
+    } catch (error) {
+        console.error(`Error executing method "${method}":`, error);
+        throw new functions.https.HttpsError('internal', 'An internal error occurred while executing the method.');
+    }
+});

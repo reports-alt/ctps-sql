@@ -1,12 +1,10 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import '@mdi/font/css/materialdesignicons.css'
 import router from './router'
 import { createPinia } from 'pinia';
 import vuetify from './plugins/vuetify'
-
-const pinia = createPinia();
+import { useFirebaseStore } from '/home/user/ctps-sql/src/store/firebase.js'; // Corrected path
 
 const app = createApp(App)
 app.use(router)

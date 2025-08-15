@@ -15,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install dependencies
         run: npm ci
@@ -31,3 +31,10 @@ jobs:
           projectId: completetps-app # Replace YOUR_PROJECT_ID with your Firebase project ID
           channelId: live
           target: completetps-sql
+      - name: Deploy Firebase Functions
+        run: |
+          cd functions
+          npm ci
+          firebase deploy --only functions --token "${{ secrets.FIREBASE_SERVICE_ACCOUNT_completetps }}"
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
