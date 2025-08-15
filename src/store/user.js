@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import { httpsCallable } from 'firebase/functions';
-import { useFirebaseStore } from './firebase';
+import { auth } from '../plugins/firebase';
 
 export const useUserStore = defineStore('user', () => {
   const role = ref(null);
@@ -11,9 +11,6 @@ export const useUserStore = defineStore('user', () => {
   const showLoginDialog = ref(false)
 
 
-
-
-  const firebaseStore = useFirebaseStore();
 
   // Listen for authentication state changes
   onAuthStateChanged(auth, (currentUser) => {

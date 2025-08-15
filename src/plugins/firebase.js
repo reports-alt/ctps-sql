@@ -1,3 +1,4 @@
+// src/plugins/firebase.js
 
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
@@ -14,16 +15,14 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-
 const firebaseApp = initializeApp(firebaseConfig);
 
-
 const auth = getAuth(firebaseApp);
-const firestore = getFirestore(firebaseApp, 'developer');
-const functions = getFunctions(firebaseApp);
-
+const firestore = getFirestore(firebaseApp); // Assuming default database; if you have a specific db ID, add it here
+const functions = getFunctions(firebaseApp); // Assuming default region; if you have a specific region, add it here
 
 export {
+  firebaseApp,
   auth,
   firestore,
   functions,
