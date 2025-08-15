@@ -7,6 +7,24 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
+const mysql = require('mysql2/promise');
+
+const pool = mysql.createPool({
+ user: process.env.DB_USER,
+ password: process.env.DB_PASSWORD,
+ database: process.env.DB_NAME,
+ host: process.env.DB_HOST,
+ connectionLimit: 10,
+});
+
+pool.getConnection()
+ .then(connection => {
+ console.log('Successfully connected to the database pool.');
+ connection.release();
+ })
+ .catch(err => {
+ console.error('Error connecting to the database pool:', err);
+ });
 const {setGlobalOptions} = require("firebase-functions");
 const {onRequest} = require("firebase-functions/https");
 const logger = require("firebase-functions/logger");

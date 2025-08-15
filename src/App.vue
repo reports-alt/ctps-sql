@@ -3,23 +3,33 @@
     <v-layout>
       <AppBar />
       <AppDrawer />
-
       <v-main>
         <router-view />
       </v-main>
     </v-layout>
+    <Login />
+    <v-snackbar v-model="snackbarVisible" :color="snackbarColor" :title="snackbarTitle" :text="snackbarMessage">
+      <template v-slot:actions>
+        <v-btn color="white" variant="text" @click="snackbarVisible = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-app>
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia';
 
-import { useUserStore } from '/src/store/user';
-import { useAppStore } from '/src/store/app';
 import AppDrawer from './components/AppDrawer.vue';
 import AppBar from './components/AppBar.vue';
+import Login from './components/Login.vue';
 
-const userStore = useUserStore();
+import { useAppStore } from '/src/store/app';
+
 const appStore = useAppStore();
+const { snackbarVisible, snackbarMessage, snackbarColor, snackbarTitle } = storeToRefs(appStore);
+
 
 </script>
 

@@ -18,5 +18,8 @@
     "@mdi/font": "^7.4.47",
     "@vitejs/plugin-vue": "^6.0.1",
     "vite": "^7.1.0"
+  },
+  "engines": {
+    "node": "22"
   }
 }
