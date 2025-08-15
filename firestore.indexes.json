@@ -1,0 +1,349 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "coilDocs",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "inventory",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "rec",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "car",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "receivedAt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "crAt",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "f_loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "crAt",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "dsi",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "f",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "crAt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "f",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "receivedAt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "f",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "f_loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "crAt",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "f_loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "pud",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "crAt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "f_loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "f_loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "crAt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "f_loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "pud",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "f_loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "receivedAt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "booked",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "loc",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "receivedAt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "lr",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "receivedAt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "booked",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "crAt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "receipts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "s",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "crAt",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "receivedTs",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
