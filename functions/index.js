@@ -1,13 +1,15 @@
 
-//const functions = require("firebase-functions");
-//const mysql = require("mysql2");
+// const functions = require("firebase-functions");
+// const mysql = require("mysql2");
 
-const functions = require('firebase-functions');
+const functions = require("firebase-functions");
 
-    exports.helloWorld = functions.https.onCall((data, context) => {
-      console.log("Hello from Firebase!");
-      return { result: "Hello from Firebase!", data, context };
-    });
+exports.helloWorld = functions.https.onCall((data, context) => {
+  console.log("Hello from Firebase!");
+  return {result: "Hello from Firebase!", data, context};
+});
+
+
 
 /*
 // Create a connection pool to the database
