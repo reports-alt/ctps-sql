@@ -1,6 +1,6 @@
 
 const functions = require("firebase-functions");
-const mysql = require("mysql2");
+//const mysql = require("mysql2");
 
 const functions = require('firebase-functions');
 
