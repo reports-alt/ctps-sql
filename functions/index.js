@@ -2,6 +2,14 @@
 const functions = require("firebase-functions");
 const mysql = require("mysql2");
 
+const functions = require('firebase-functions');
+
+    exports.helloWorld = functions.https.onCall((data, context) => {
+      console.log("Hello from Firebase!");
+      return { result: "Hello from Firebase!", data, context };
+    });
+
+/*
 // Create a connection pool to the database
 const pool = mysql
     .createPool({
@@ -60,3 +68,4 @@ exports.api = functions.https.onCall(async (data, context) => {
             "An internal error occurred while executing the method.");
   }
 });
+*/
