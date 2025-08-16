@@ -42,3 +42,7 @@ jobs:
           firebase deploy --only functions --token "${{ secrets.FIREBASE_SERVICE_ACCOUNT_completetps }}"
         env:
           FIREBASE_CLI_EXPERIMENTS: webframeworks
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_INSTANCE_CONNECTION_NAME: ${{ secrets.DB_INSTANCE_CONNECTION_NAME }}
