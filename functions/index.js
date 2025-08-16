@@ -9,8 +9,6 @@ exports.helloWorld = functions.https.onCall((data, context) => {
   return {result: "Hello from Firebase!", data, context};
 });
 
-
-
 /*
 // Create a connection pool to the database
 const pool = mysql
