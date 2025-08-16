@@ -24,6 +24,5 @@ module.exports = {
       rules: {},
     },
   ],
-  globals: {},
-  ignorePatterns: ["**/*"]
+  globals: {}
 };
