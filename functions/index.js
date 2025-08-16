@@ -1,3 +1,4 @@
+/* eslint-disable */
 const functions = require("firebase-functions");
 const mysql = require('mysql2');
 
@@ -16,7 +17,6 @@ const pool = mysql
   //dateStrings: ["DATE", "DATETIME","TIMESTAMP"],
 })
   .promise();
-
 
 
 
